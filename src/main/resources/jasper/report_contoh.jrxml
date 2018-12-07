@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contoh" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="42eb8ae3-3ae8-49b8-a2ac-9b115bb78cf0">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="nama" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.Boolean"/>
+	<parameter name="saldo" class="java.math.BigDecimal"/>
+	<parameter name="rakBuku" class="com.tabeldata.training.entity.Rak"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[nama]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="30" uuid="8a3ea2cd-c2ae-4ea8-835e-4e643cfe57c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Contoh Judul]]></text>
+			</staticText>
+			<textField pattern="MMMM d, yyyy hh:mm a">
+				<reportElement x="380" y="30" width="170" height="30" uuid="ae6d5394-7371-41e8-bd6c-09a3359288c0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date();]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="90" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="0" width="280" height="30" uuid="bf0be8f2-b696-4b00-8fdf-7151441dbcac"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{nama}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="2dc53846-47bd-4721-b1d9-b29193c0e197"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nama Lengkap]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="30" width="280" height="30" uuid="c994de4c-b42a-4b0b-816b-3559d5099c9c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{status} ? "Aktif" : "Tidak aktif"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="100" height="30" uuid="d7cf7a92-f98b-4443-b7aa-81f60770135b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.##;¤-#,##0.##">
+				<reportElement x="100" y="60" width="140" height="30" uuid="bb83c1fe-62d8-468c-87f6-60c811ab01fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{saldo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="450" y="0" width="100" height="30" uuid="86cbcb8b-e5a4-482d-98dc-034a23b9511a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{rakBuku}.getId()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="30" width="170" height="30" uuid="c6e8a2f5-dee5-45bf-a6cf-f913048b62e0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{rakBuku}.getNama()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="95b57678-0f17-4d99-bce1-b06c5d01cc15">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dab78349-a967-4dc1-a2c7-ebf9da0cf698"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="280" height="30" uuid="f6b14d4d-d058-4488-b4a0-d7a49c810fbb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="840d0ab3-da3c-479d-822d-b720b3b1270f"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[nama]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="0f421508-4d3a-4b47-b6ba-e1f76e4fe851">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dab78349-a967-4dc1-a2c7-ebf9da0cf698"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="280" height="30" uuid="84cbc750-7156-4556-a870-3002bd12d818">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="840d0ab3-da3c-479d-822d-b720b3b1270f"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
